@@ -37,3 +37,17 @@ WHERE tips > 0
 AND company IN ('Flash Cab', 'Taxi Affiliation Services', 'Yellow Cab', 'Chicago Carriage Cab Corp', 'City Service', 'Sun Taxi')
 ORDER BY trip_start_timestamp
 LIMIT 20000;
+
+Data used nexy (see ceda_ii):
+(Wanting to have 'actual trips' instead of more murky data with cancelatons or unknowns filled in (more likely than filled data) I added two more conditions in the WHERE. Additionally, I decided to order by taxi_id to approach the 'human element', giving us a total of 208 taxis within the month of January 2015.
+
+SELECT taxi_id, trip_start_timestamp, trip_seconds, trip_miles, pickup_community_area, dropoff_community_area, fare, tips, tolls, extras, trip_total, payment_type, company
+FROM bigquery-public-data.chicago_taxi_trips.taxi_trips
+WHERE tips > 0
+AND trip_seconds > 0
+AND trip_miles > 0
+AND company IN ('Flash Cab', 'Taxi Affiliation Services', 'Yellow Cab', 'Chicago Carriage Cab Corp', 'City Service', 'Sun Taxi')
+AND trip_start_timestamp BETWEEN '2015-01-01 00:00:00.000000 UTC' AND '2015-01-31 23:45:00.000000 UTC'
+ORDER BY taxi_id
+LIMIT 40000;
+
