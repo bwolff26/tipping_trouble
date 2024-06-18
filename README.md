@@ -6,6 +6,10 @@ For the sake of doing a project that will actually have some direct benefit to m
 
 Ideally, I would really like to examine if tipping 'actually pays the bills' for the workers as even in industries such as food-service/restaurants (America) as in short I find it deplorable the notion that workers have to rely on tips for their base salary. However, likely that might get too politcal so I'll avoid writing that here.
 
+## Analysis
+
+In short, the current iteration (6/18/24) had the goal of seeing if any of our features ('taxi_id', 'trip_start_timestamp', 'trip_seconds', 'trip_miles','pickup_community_area', 'dropoff_community_area', 'fare', 'tips','tolls', 'extras', 'trip_total', 'payment_type', 'company') contributed to a change in the percentage of tips received. Unfortunately, per these features we found no such result. Ultimately, our best model had a meager .07 (honestly rounding up) R2 of predicting tip percentage. So, much more research would need to be undertaken to try to figue out if any trip factors contribute to receiving a larger percentage of a tip. See ceda_ii for more details and thoughts.
+
 ## From BigQuery
 
 Accessed 5/28/24 'chicago_taxi_trips'. The overall tipping rate was .38 (below)
